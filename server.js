@@ -5,7 +5,6 @@ var port = process.env.PORT || 8000;
 var cors = require('cors');
 var logger = require('morgan');
 var knex = require('./db/knex');
-var counter = 1;
 
 var shops = require('./routes/shopsRoutes');
 var donuts = require('./routes/donutsRoutes');

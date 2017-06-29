@@ -1,43 +1,60 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <link href="style.css" rel="stylesheet" type="text/css">
 
-    <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great|Press+Start+2P" rel="stylesheet">
+<head>
+  <meta charset="utf-8">
+  <link href="style.css" rel="stylesheet" type="text/css">
+
+  <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great|Press+Start+2P" rel="stylesheet">
 
 
 
-    <title>Donuts!</title>
-  </head>
-  <body>
-    <div class = 'container'>
+  <title>Donuts!</title>
+</head>
 
-      <h1 id = "title">Donuts!</h1>
-      <div id = 'navBar'>
-        <a id = 'navy' href ='/shops'>Shops </a> <span id = 'line'>|</span>
-        <a id = 'navy' href ='/donuts'>Donuts </a><span id = 'line'>|</span>
-        <a id = 'navy' href ='/employee'>Employees </a>
-      </div>
-      <br><br>
+<body>
+  <div class='container'>
 
-      <% for (var i = 0; i<shops.length; i++){ %>
-        <li>
+    <h1 id="title">Donuts!</h1>
+    <div id='navBar'>
+      <a id='navy' href='/shops'>Shops </a> <span id='line'>|</span>
+      <a id='navy' href='/donuts'>Donuts </a><span id='line'>|</span>
+      <a id='navy' href='/employee'>Employees </a>
+    </div>
+    <br><br>
 
-          <a id ='listy' href = '/shops/<%= shops[i].id %>' >
+    <% for (var i = 0; i<shops.length; i++){ %>
+      <li>
 
-            <%=shops[i].name %>
-          </a>
-          <button type="reset" name="button">Delete</button>
+        <a id='listy' href='/shops/<%= shops[i].id %>'>
 
-          <br><br><br>
+          <%=shops[i].name %>
+        </a>
 
-        </li>
+        <form action="/shops/<%= shops[i].id %>/edit" method="get">
+
+          <button>Edit</button>
+        </form>
+
+
+
+        <form action="/shops/delete/<%= shops[i].id %>" method="post">
+
+          <button type="submit">Delete</button>
+        </form>
+
+        <br><br>
+
+      </li>
       <%}%>
 
-      <a href="/shops/new">
-         <button>Add Shop</button>
-      </a>    </div>
+        <a href="/shops/new">
+         <button id = "addy">Add Shop</button>
+      </a> </div>
 
-  </body>
+  </a>
+  </div>
+
+</body>
+
 </html>
