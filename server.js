@@ -5,6 +5,11 @@ var port = process.env.PORT || 8000;
 var cors = require('cors');
 var logger = require('morgan');
 var knex = require('./db/knex');
+var counter = 1;
+
+var shops = require('./routes/shopsRoutes');
+var donuts = require('./routes/donutsRoutes');
+var employee = require('./routes/employeeRoutes');
 
 var app = express();
 
@@ -16,31 +21,12 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get('/', function(req, res) {
-  res.render('index', { title: 'DBConfig' });
-});
+app.use('/shops', shops);
+app.use('/donuts',donuts);
+app.use('/employee',employee);
+app.get('/', function(req, res){ res.redirect('/shops')});
 
-app.get('/todos', function(req, res) {
-  res.send('get-all route');
-});
-
-app.get('/todos/:id', function(req, res) {
-  res.send('get-one route');
-});
-
-app.post('/todos', function(req, res) {
-  res.send('add-one route');
-});
-
-app.put('/todos/:id', function(req, res) {
-  res.send('change/update-one route');
-});
-
-app.delete('/todos/:id', function(req, res) {
-  res.send('delete/remove-one route');
-});
-
-
+app.use(express.static(__dirname + '/public'));
 
 app.listen(port, function() {
 console.log("listening on port: ", port);

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="style.css" rel="stylesheet" type="text/css">
+
+    <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great|Press+Start+2P" rel="stylesheet">
+
+
+
+    <title>Donuts!</title>
+  </head>
+  <body>
+    <div class = 'container'>
+
+      <h1 id = "title">Donuts!</h1>
+      <div id = 'navBar'>
+        <a id = 'navy' href ='/shops'>Shops </a> <span id = 'line'>|</span>
+        <a id = 'navy' href ='/donuts'>Donuts </a><span id = 'line'>|</span>
+        <a id = 'navy' href ='/employee'>Employees </a>
+      </div>
+      <br><br>
+
+      <% for (var i = 0; i<shops.length; i++){ %>
+        <li>
+
+          <a id ='listy' href = '/shops/<%= shops[i].id %>' >
+
+            <%=shops[i].name %>
+          </a>
+          <button type="reset" name="button">Delete</button>
+
+          <br><br><br>
+
+        </li>
+      <%}%>
+
+      <a href="/shops/new">
+         <button>Add Shop</button>
+      </a>    </div>
+
+  </body>
+</html>
