@@ -9,9 +9,17 @@ knex.raw(`select * from employee`).then(function(employee){
   });
 });
 
-router.get('/:id', function(req, res) {
+router.get('/employee', function(req, res) {
+knex.raw(`select * from employee order by id asc`).then(function(employee){
+  res.render('employeeViews/allEmployees', {
+    employee:employee.rows});
+  });
+});
+
+router.get('/employee/:id', function(req, res) {
 knex.raw(`select * from employee where id = ${req.params.id}`).then(function(employee){
-  res.send(employee.rows);
+  res.render('employeeViews/allEmployees',{
+    employee:employee.rows});
   });
 });
 

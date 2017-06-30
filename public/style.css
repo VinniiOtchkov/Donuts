@@ -15,7 +15,7 @@ body{
 #title{
   text-align: center;
   color: black;
-  font-family: 'Fredericka the Great', cursive;
+  font-family: 'Press Start 2P', cursive;
 font-size: 60px;
 }
 
@@ -70,5 +70,6 @@ font-family: 'Press Start 2P', cursive;
 
 #addy{
 align-items: center;
-margin-left: 560px;
+margin-left: 528px;
+position: sticky;
 }

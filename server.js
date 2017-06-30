@@ -23,6 +23,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/shops', shops);
 app.use('/donuts',donuts);
 app.use('/employee',employee);
+
 app.get('/', function(req, res){ res.redirect('/shops')});
 
 app.use(express.static(__dirname + '/public'));
